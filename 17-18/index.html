@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тег ввода</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Тег ввода информации input &lt;input&gt;</h2>
+    <input>
+    <button>Ok</button>
+    <!--Ввод и кнопка-->
+    <input type="password">
+    <input type="button" value="Ok">
+    <input type="checkbox">
+    <div>
+        <label>Female
+            <input type="radio" value="female" name="gender">
+        </label>
+        <label>Male
+            <input type="radio" value="male" name="gender">
+        </label>
+    </div>
+    
+    <input type="color">
+    <input type="date">
+    <input type="time">
+    <input type="file">
+    <input type="image" src="/очки.png" width="30px" height="30px">
+    <input type="range">
+    <input type="range" min="1" max="100" step="1">
+    <input type="range" min="1" max="101" step="50">
+    <input disabled>
+    <input type="email">
+    <input type="text" placeholder="Введите имя">
+    <input readonly placeholder="Ваш промокод 11777">
+
+        <div class="controls">
+            <!-- Второй input: ползунок (range) с шагом 5 пикселей -->
+            <label for="sizeRange">Размер картинки: <span id="sizeValue" class="size-info">200px</span></label>
+            <input type="range" id="sizeRange" min="100" max="400" value="200" step="5" style="width: 100%;">
+        </div>
+    
+        <div class="image-container">
+            <!-- Первый input: тег ввода в виде картинки -->
+            <input type="image" id="dynamicImageInput" src="/очки.png" alt="Кнопка-картинка" width="200" height="200">
+        </div>
+    
+        <script>
+            // Находим элементы на странице
+            const imageInput = document.getElementById('dynamicImageInput');
+            const sizeRange = document.getElementById('sizeRange');
+            const sizeValueText = document.getElementById('sizeValue');
+    
+            // Функция, которая меняет ширину и высоту первого инпута
+            function resizeImage() {
+                const currentSize = sizeRange.value; // Получаем значение ползунка (кратно 5)
+                
+                // Меняем атрибуты ширины и высоты у инпута-картинки
+                imageInput.width = currentSize;
+                imageInput.height = currentSize;
+    
+                // Обновляем текст с текущим размером на экране
+                sizeValueText.textContent = currentSize + 'px';
+            }
+    
+            // Следим за перемещением ползунка
+            sizeRange.addEventListener('input', resizeImage);
+    
+            // Отменяем отправку формы при клике на картинку (так как type="image" по умолчанию отправляет форму)
+            imageInput.addEventListener('click', function(event) {
+                event.preventDefault();
+            });
+        </script>
+    
+    
+
+
+    <script> /*Код Javascript подключаем в тегах script*/
+        inputVar = document.querySelector('input[value="female"]).checked');
+        if (inputVar) {
+            document.querySelector('input[name= "male"]').checked=false ;
+        }
+    </script>
+    <h1>My To Do list</h1>
+</body>
+</html>
